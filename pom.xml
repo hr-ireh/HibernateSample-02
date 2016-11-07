@@ -59,6 +59,11 @@
                 <filtering>true</filtering>
                 <directory>src/main/java/ir/hri/resource</directory>
             </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/META-INF/services</directory>
+                <targetPath>META-INF/services</targetPath>
+            </resource>
         </resources>
     </build>
 </project>

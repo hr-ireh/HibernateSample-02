@@ -83,4 +83,8 @@ public class StudentBusiness {
     public void sessionClose() {
         session.close();
     }
+
+    public Session getSession() {
+        return session;
+    }
 }

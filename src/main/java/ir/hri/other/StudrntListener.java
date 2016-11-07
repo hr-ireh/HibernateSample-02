@@ -1,7 +1,13 @@
 package ir.hri.other;
 
-/**
- * Created by HR on 11/7/2016.
- */
-public class StudrntListener {
+import org.hibernate.event.spi.*;
+
+public class StudrntListener implements PostLoadEventListener, PreLoadEventListener {
+    public void onPostLoad(PostLoadEvent postLoadEvent) {
+        System.out.println("----- onPostLoad -----");
+    }
+
+    public void onPreLoad(PreLoadEvent preLoadEvent) {
+        System.out.println("----- onPreLoad -----");
+    }
 }
