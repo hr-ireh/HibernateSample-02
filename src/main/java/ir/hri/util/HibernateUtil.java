@@ -2,9 +2,11 @@ package ir.hri.util;
 
 import ir.hri.other.StudrntInterceptor;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.stat.Statistics;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
@@ -19,10 +21,8 @@ public class HibernateUtil {
             configuration.configure();
             configuration.setInterceptor(new StudrntInterceptor());
 
-            serviceRegistry = new ServiceRegistryBuilder().applySettings(
-                    configuration.getProperties()).buildServiceRegistry();
+            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);

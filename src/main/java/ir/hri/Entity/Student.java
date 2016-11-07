@@ -1,9 +1,16 @@
 package ir.hri.Entity;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "STUDENT")
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY ,region = "student")
 public class Student {
     private long id;
     private String name;
