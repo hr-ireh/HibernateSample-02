@@ -1,5 +1,6 @@
 package ir.hri.util;
 
+import ir.hri.other.StudrntInterceptor;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -16,7 +17,7 @@ public class HibernateUtil {
         try {
             Configuration configuration = new Configuration();
             configuration.configure();
-            //configuration.setInterceptor(new StudrntInterceptor());
+            configuration.setInterceptor(new StudrntInterceptor());
 
             serviceRegistry = new ServiceRegistryBuilder().applySettings(
                     configuration.getProperties()).buildServiceRegistry();
